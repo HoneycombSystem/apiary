@@ -1,0 +1,74 @@
+@startuml
+
+box "Client application"
+participant beekeeper
+end box
+
+box "Public interface"
+participant spring
+end box
+
+box "High-performance service"
+participant honeybadger
+end box
+
+box "Databases"
+participant honeycomb
+end box
+
+box "Observability service"
+participant drone
+end box
+
+box "Commend sender"
+participant queenbee
+end box
+
+alt high performance operation
+    autonumber 1,1
+    beekeeper -> spring: request
+    spring -> honeybadger: request
+    honeybadger -> honeycomb: request
+    honeycomb -> honeybadger: response
+    honeybadger -> spring: response
+    spring -> beekeeper: response
+else low performance operation
+    autonumber 2.1
+    beekeeper -> spring: request
+    spring -> honeycomb: request
+    honeycomb -> spring: response
+    spring -> beekeeper: response
+end
+
+group Command for honeybadger
+    autonumber 3.1
+    queenbee -> honeybadger: command
+    queenbee <-- honeybadger: status
+end
+
+group Indicate from honeybadger
+    autonumber 5.1
+    honeybadger -> queenbee: indication
+end
+
+group Command for spring
+    autonumber 4.1
+    queenbee -> spring: command
+    queenbee <-- spring: status
+end
+
+group Indicate from spring
+    autonumber 5.1
+    spring -> queenbee: indication
+end
+
+group Observability service
+autonumber 5.1
+    spring -> drone: counterUpdateIndication
+    spring -> drone: logsExportIndication
+end
+group Observability service
+    honeybadger -> drone: counterUpdateIndication
+    honeybadger -> drone: logsExportIndication
+end
+@enduml
