@@ -1,0 +1,28 @@
+@startuml
+autonumber
+box "External interface"
+participant pollen
+end box
+
+pollen -> honeybee: dataProcessingRequest
+honeybee -> hive: invoiceProcessingRequest
+pollen <-- honeybee: dataProcessingResponse
+hive -> workerbee: invoiceProcessingRequest
+hive <-- workerbee: invoiceProcessingResponse
+hive -> honeybee: invoicePrcessingStatusInd
+honeybee -> pollen: invoicePrcessingStatusInd
+
+pollen -> honeybee: invoiceSaveRequest
+honeybee -> hive: invoiceSaveRequest
+hive -> warehouse: invoiceSaveRequest
+
+'queenbee -> hive: startRestartProcedureRequest
+'queenbee <-- hive: startRestartProcedureResponse
+
+'queenbee -> honeybee: restrictTypeOfInputRequest
+'queenbee <-- honeybee: restrictTypeOfInputResponse
+
+box "Commend sender"
+participant queenbee
+end box
+@enduml
