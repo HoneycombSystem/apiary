@@ -11,11 +11,8 @@ Main services are:
 - **queenbee** - service for managing other services
 
 ## Components of the system
-
 ### Beekeeper
-
 #### Keywords
-
 - `Dart`
 - `Flutter`
 - `Multiplatform`
@@ -24,32 +21,25 @@ Main services are:
 - `Desktop`
 
 ### Spring
-
 #### Keywords
-
 - `Rust`
 - `Axum`
 - `REST API`
 
 
 ### Honeybadger
-
 #### Keywords
-
 - `C++`
 - `nng`
 - `flatbuffers`
 - `High-performance service`
 
 ### Honeycomb
-
 #### Keywords
-
 - `PostgreSQL`
 - `Redis`
 
 ### Drone
-
 - `Opentelemetry`
 - `Prometheus`
 - `Loki`
@@ -57,7 +47,6 @@ Main services are:
 - `checkmk`/`Grafana OnCall`
 -
 ### Queenbee
-
 #### Keywords
 - `GRPC`
 - `Python`
