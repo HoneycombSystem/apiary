@@ -22,9 +22,8 @@ Main services are:
 
 ### Spring
 #### Keywords
-- `Rust`
-- `Axum`
-- `REST API`
+- `Rust` for `GraphQL`
+- `GO` for `REST API`
 
 
 ### Honeybadger
